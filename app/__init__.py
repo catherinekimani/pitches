@@ -7,6 +7,8 @@ def create_app(config_name):
     
 # initializing application
     app = Flask(__name__)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
 # Registering blueprint 
     from .main import main as main_blueprint
