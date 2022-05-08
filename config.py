@@ -5,6 +5,7 @@ class Config:
     General configuration parent class
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:wambui@localhost/pitches'
+    SECRET_KEY = 'catherinekimani'
 
 class ProdConfig(Config):
     '''
