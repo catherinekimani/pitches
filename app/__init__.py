@@ -10,6 +10,10 @@ def create_app(config_name):
     
 # initializing application
     app = Flask(__name__)
+    # register auth blueprint
+    from.auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+    
     app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
