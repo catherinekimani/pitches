@@ -1,0 +1,54 @@
+h1{
+    color: blue;
+    margin-top: 8%;
+}
+.container1{
+    background-color: rgba(10, 8, 8, 0.753);
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.pic{
+    background-color: rgb(18, 182, 182);
+    height: 30vh;
+    width: 25%;
+    margin: 7%;
+    margin-left: 60%;
+    border-radius: 10px;
+}
+
+.update{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.NoPic{
+    color: rgb(227, 34, 9);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: sans-serif;
+    /* text-align: right; */
+    margin-left: 100rem;
+    margin-top: -40%;
+}
+
+button{
+    border-radius: 15px;
+    background-color: black;
+}
+
+.user{
+    color: rgb(1, 16, 35);
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.bio{
+    font-family: sans-serif;
+    color: black;
+    
+    font-size: 15px;
+}
