@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+{% endblock %}
+{% block content %}
+<div class="container1">
+<h1>Pitches</h1>
+</div>
+<img src="{{ url_for('static', filename = '/images/pitches.jpg')}}" alt="image">
+
+{% endblock %}
