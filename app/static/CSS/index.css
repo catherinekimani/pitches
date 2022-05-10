@@ -2,7 +2,7 @@ h1{
     color: blue;
     margin-top: 8%;
 }
-.container1{
+.container-fluid{
     background-color: rgba(10, 8, 8, 0.753);
     height: 100vh;
     overflow: hidden;
