@@ -6,8 +6,28 @@
 {% endblock %}
 {% block content %}
 <div class="container-fluid">
-<h1>Pitches</h1>
+<marquee behavior="" direction="right"> <h1> Welcome to Pitch World .... All Pitches </h1></marquee>
 </div>
-
-
+<div id="tech">
+<div class="container-fluid">
+    <div class="row">
+        {% for category in pitches %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                <h1>{{category.title}}</h1>
+                <p style="font-size: 15px;">{{category.description}}</p>
+                <h4> Category:{{category.category}}</h4>
+                <h5> Post by {{category.user}}</h5>
+                <p>{{category.date_posted}}</p>
+                <button class="btn1"> Like </button>
+                <button class="btn2"> Dislike </button>
+                <a href=""> <button class="btn3">Comment</button> </a>
+                </div>
+            </div>
+        </div>
+        {%endfor %}
+    </div>
+</div>
+</div>
 {% endblock %}

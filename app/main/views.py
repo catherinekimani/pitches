@@ -1,6 +1,7 @@
 from crypt import methods
+from unicodedata import category
 from flask import render_template,request,redirect,url_for,abort
-from .. models import User
+from .. models import User,Pitch,Upvotes,Downvotes,Comments
 from . import main
 from . forms import UpdateProfile
 from .. import db,photos
@@ -8,11 +9,15 @@ from flask_login import login_required
 
 @main.route('/')
 def index():
+    pitches = Pitch.query.all()
+    print(pitches)
+    tech = Pitch.query.filter_by(category = 'Tech').all()
+    inspirational = Pitch.query.filter_by(category= 'Inspirational').all()
     '''
     View root page function that returns the index page and its data
     '''
     
-    return render_template('index.html')
+    return render_template('index.html',pitches=pitches,tech = tech,inspirational=inspirational)
 
 @main.route('/user/<uname>')
 def profile(uname):
