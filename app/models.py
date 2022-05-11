@@ -66,6 +66,10 @@ class Comments(db.Model):
     def __repr__(self):
         return f'User {self.text}'
     
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+    
 class Upvotes(db.Model):
     __tablename__ = 'upvotes'
     id = db.Column(db.Integer,primary_key = True)
