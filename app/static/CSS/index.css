@@ -1,12 +1,47 @@
 h1{
-    color: blue;
+    color: rgba(0, 5, 11, 0.889);
+    font-weight: bold;
+    font-family: sans-serif;
     margin-top: 8%;
+    width: 80%;
+
 }
-.container-fluid{
-    background-color: rgba(10, 8, 8, 0.753);
-    height: 100vh;
-    overflow: hidden;
-    opacity: 0.8;
+.row{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    background-color: rgb(29, 28, 28);
+}
+
+/* cards styling */
+.caption{
+    background-color: rgba(237, 245, 246, 0.969);
+}
+
+/* button */
+.btn1{
+    background-color: red;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn2{
+    background-color : green;
+    margin-left: 10%;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn3{
+    background-color: rgb(16, 133, 165);
+    margin-left: 10%;
+    width: 20%;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .pic{
