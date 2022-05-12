@@ -1,37 +1,56 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div class="container" style="background-color: rgb(234, 234, 247); width: 100%; height: 100vh;">
+    <div class="row" style="background-color: rgb(153, 209, 255); width: 60%; margin-left: 20%;">
+        <!-- displaying  Userprofile-->
+        <div class="col-md-4">
+            
+                {% if user.profile_pic %}
+                <img src="{{url_for('static',filename=user.profile_pic)}}" alt="" class="img-thumbnail">
+                {%else%}
+                <p>No profile picture</p>
+                {% endif %}
+            
+            <h3> {{user.username| capitalize}} </h3>
 
-<div class="container1">
-
-    <div class="row">
-        <div class="col-md-4 pic">
-            <h3 class="user"> {{user.username| capitalize}} </h3>
-
+            <!--Displaying user bio-->
             {% if user.bio %}
-            <p class="bio"> {{user.bio}}</p>
-
+            <p> {{user.bio}}</p>
             {%else%}
             <p> {{user.username| capitalize}} has no bio </p>
             {% endif %}
 
+            <!-- edit profile -->
             {% if user == current_user %}
-            <a class="update" href="{{url_for('main.update_profile',uname=user.username)}}"><button>Edit profile</button></a>
+            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
             {% endif %}
 
+            {% if user == current_user %}
+            <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype="multipart/form-data">
+            
+                <input type="file" name="photo" class="form-control" required>
+                <input type="submit">
+            </form>
+            {% endif %}
         </div>
-        <div class="col-md-4">
-            {% if user.profile_pic %}
-
-            <img src="{{url_for('static',filename=user.profile_pic)}}" alt="" class="img-thumbnail">
-
-            {%else%}
-            <p class="NoPic">No profile picture</p>
-
-            {% endif %}
-        <!-- </div>
-
-
-    </div> -->
+    </div>
 </div>
+
+<div class="col-md-1"></div>
+<div class="col-md-5" id="user">
+    {% if current_user %}
+    <h3 class="text-center">You have {{user.pitches.count()}} Pitches</h3>
+    {% for i in pitches%}
+    <div class="pitches">
+        <h5>Title: {{i.title}}</h5>
+        <h6>{{i.pitches}}</h6>
+        <p>{{i.comments.count()}} Comments</p>
+    </div>
+
+    {%endfor%}
+    {%else%}
+    <h3>You have ) posts</h3>
+    {%endif%}
+
 {% endblock %}

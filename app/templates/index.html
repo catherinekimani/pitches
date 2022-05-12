@@ -22,7 +22,7 @@
                 <p><mark>{{category.date_posted}}</mark></p>
                 <button class="btn1"> Like </button>
                 <button class="btn2"> Dislike </button>
-                <a href="/comments/{{category.id}}"> <button class="btn3">Comment</button> </a>
+                <a href="{{url_for('main.new_comments',pitch_id=category.id)}}"> <button class="btn3">Comment</button> </a>
                 </div>
             </div>
         </div>
