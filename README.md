@@ -1,6 +1,9 @@
 # Pitches
 
 ##### By Catherine Kimani
+
+![catherine](/app/static/images/pitches.png)
+
 ### Pitches App
 
 ## Table of Content
