@@ -62,13 +62,20 @@ class Comments(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     text = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    
-    def __repr__(self):
-        return f'User {self.text}'
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
     
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
+    
+    @classmethod
+    def get_comments(cls,pitch_id):
+        comments = Comments.query.filter_by(pitch_id=pitch_id).all()
+        
+        return comments
+    
+    def __repr__(self):
+        return f'User {self.text}'
     
 class Upvotes(db.Model):
     __tablename__ = 'upvotes'
