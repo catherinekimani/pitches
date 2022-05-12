@@ -4,7 +4,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from .. models import User,Pitch,Upvotes,Downvotes,Comments
 from . import main
-from . forms import UpdateProfile,PitchForm,CommentForm
+from .forms import UpdateProfile,PitchForm,CommentForm
 from .. import db,photos
 from flask_login import current_user, login_required
 
@@ -28,7 +28,7 @@ def new_pitch():
         title = form.title.data
         description = form.description.data
         category = form.category.data
-        user = current_user
+        user   = current_user
         new_pitch_object = Pitch(description=description,user=current_user._get_current_object().id,category=category,title=title)
         new_pitch_object.save_pitch()
         return redirect(url_for('main.index'))
@@ -46,21 +46,22 @@ def new_comments(pitch_id):
     form = CommentForm()
     if form.validate_on_submit():
         comment = form.comment.data      
-        new_comment = Comments(comment=comment, pitch_id=pitch_id, user_id=current_user.get_id())
+        new_comment = Comments(text=comment, pitch_id=pitch_id, user_id=current_user.get_id())
         new_comment.save_comment()
-        return redirect(url_for('main.index',pitch_id = pitch_id))
+        # return redirect(url_for('main.index',pitch_id = pitch_id))
 
-    return render_template('comments.html',Commentform=form, comments=comments, pitches = pitches, user=user)
+    return render_template('comments.html',Commentsform=form, comments=comments, pitches = pitches, user=user)
 
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
     user_id = current_user._get_current_object().id
-    posts = Pitch.query.filter_by(user_id = user_id).all()
+    pitches = Pitch.query.filter_by(user_id = user_id).all()
     if user is None:
         abort(404)
         
-    return render_template('profile/profile.html',user = user)
+    return render_template('profile/profile.html',user = user,pitches=pitches)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
@@ -76,7 +77,7 @@ def update_profile(uname):
         
         db.session.add(user)
         db.session.commit()
-        
+        # print(current_user)
         return redirect(url_for('.profile',uname = user.username))
     return render_template('/profile/update.html',form = form)
 

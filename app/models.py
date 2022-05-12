@@ -39,6 +39,7 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
     
+    
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer,primary_key = True)
@@ -81,6 +82,16 @@ class Upvotes(db.Model):
     __tablename__ = 'upvotes'
     id = db.Column(db.Integer,primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_upvotes(cls,id):
+        upvotes = Upvotes.query.filter_by(pitch_id=id).all()
+        return upvotes
     
     def __repr__(self):
         return f'User {self.user_id}'
@@ -89,7 +100,10 @@ class Downvotes(db.Model):
     __tablename__ = 'downvotes'
     id = db.Column(db.Integer,primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    
+    
+    
     def __repr__(self):
         return f'User {self.user_id}'
     
