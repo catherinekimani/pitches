@@ -19,10 +19,10 @@
                 <p style="font-size: 15px;">{{category.description}}</p>
                 <h4> Category:{{category.category}}</h4>
                 <h5> Post by {{category.user}}</h5>
-                <p>{{category.date_posted}}</p>
+                <p><mark>{{category.date_posted}}</mark></p>
                 <button class="btn1"> Like </button>
                 <button class="btn2"> Dislike </button>
-                <a href=""> <button class="btn3">Comment</button> </a>
+                <a href="/comments/{{category.id}}"> <button class="btn3">Comment</button> </a>
                 </div>
             </div>
         </div>

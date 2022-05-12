@@ -2,7 +2,6 @@ h1{
     color: rgba(0, 5, 11, 0.889);
     font-weight: bold;
     font-family: sans-serif;
-    margin-top: 8%;
     width: 80%;
 
 }
@@ -14,7 +13,7 @@ h1{
 
 /* cards styling */
 .caption{
-    background-color: rgba(237, 245, 246, 0.969);
+    background-color: #dee2e6;
 }
 
 /* button */
@@ -44,6 +43,22 @@ h1{
     font-weight: bold;
 }
 
+.btn4{
+    background-color: black;
+    margin-left:50%;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+/* newpitch */
+#NewPitch{
+    background-color: blue;
+    margin-left: 40%;
+    padding: 20%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
 .pic{
     background-color: rgb(18, 182, 182);
     height: 30vh;
@@ -60,12 +75,12 @@ h1{
     font-family: sans-serif;
 }
 
+
 .NoPic{
     color: rgb(227, 34, 9);
     font-weight: bold;
     font-size: 20px;
     font-family: sans-serif;
-    /* text-align: right; */
     margin-left: 100rem;
     margin-top: -40%;
 }
@@ -86,4 +101,17 @@ button{
     color: black;
     
     font-size: 15px;
+}
+
+/* comments styling */
+.comments{
+    background-color: blue;
+    width: 50%;
+    height: 30vh;
+    margin-left: 25%;
+}
+
+.com{
+    background-color: rgb(221, 217, 217);
+    height: 100vh;
 }
