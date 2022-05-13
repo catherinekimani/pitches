@@ -4,7 +4,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:wambui@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:wambui@localhost:5433/pitches'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = 'catherinekimani'
     #  email configurations
