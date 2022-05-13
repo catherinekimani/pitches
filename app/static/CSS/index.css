@@ -52,11 +52,13 @@ h1{
 
 /* newpitch */
 #NewPitch{
-    background-color: blue;
-    margin-left: 40%;
-    padding: 20%;
-    padding-left: 2%;
-    padding-right: 2%;
+    background-color: rgb(72, 167, 245);
+    border-radius: 15px;
+    height: 60vh;
+    padding: 15px;
+    width: 100%;
+    margin-left: 60%;
+    margin-top: 5%;
 }
 
 .NoPic{
