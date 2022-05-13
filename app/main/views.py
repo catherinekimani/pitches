@@ -52,6 +52,43 @@ def new_comments(pitch_id):
 
     return render_template('comments.html',Commentsform=form, comments=comments, pitches = pitches, user=user)
 
+# likes
+@main.route('/like/<int:id>',methods = ['POST','GET'])
+@login_required
+def like(id):
+    get_pitches = Upvotes.get_upvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for pitches in get_pitches:
+        to_str = f'{pitches}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_like = Upvotes(pitch_id=id)
+    new_like.save()
+    return redirect(url_for('main.index',id=id))
+
+# dislikes
+
+@main.route('/dislike/<int:id>',methods = ['POST','GET'])
+@login_required
+def dislike(id):
+    get_pitches = Downvotes.get_upvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for pitches in get_pitches:
+        to_str = f'{pitches}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_dislike = Downvotes(pitch_id=id)
+    new_dislike.save()
+    return redirect(url_for('main.index',id=id))
+
+# profile
+
 @main.route('/user/<uname>')
 @login_required
 def profile(uname):
@@ -62,6 +99,8 @@ def profile(uname):
         abort(404)
         
     return render_template('profile/profile.html',user = user,pitches=pitches)
+
+# update profile
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
@@ -80,6 +119,8 @@ def update_profile(uname):
         # print(current_user)
         return redirect(url_for('.profile',uname = user.username))
     return render_template('/profile/update.html',form = form)
+
+# update pic
 
 @main.route('/user/<uname>/update/pic', methods=['POST'])
 @login_required

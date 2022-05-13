@@ -49,6 +49,8 @@ class Pitch(db.Model):
     category = db.Column(db.String(150), index = True,nullable = False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    upvotes = db.relationship('Upvotes', backref = 'pitches', lazy = 'dynamic')
+    downvotes = db.relationship('Downvotes', backref = 'pitches', lazy = 'dynamic')
     
     def save_pitch(self):
         db.session.add(self)
@@ -102,7 +104,14 @@ class Downvotes(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
     
-    
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_upvotes(cls,id):
+        downvotes =Downvotes.query.filter_by(pitch_id=id).all()
+        return downvotes
     
     def __repr__(self):
         return f'User {self.user_id}'
