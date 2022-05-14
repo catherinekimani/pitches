@@ -12,13 +12,13 @@
 <div class="container-fluid">
     <div class="row">
         {% for category in pitches %}
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-6">
             <div class="thumbnail">
                 <div class="caption">
                 <h1>{{category.title}}</h1>
                 <p style="font-size: 15px;">{{category.description}}</p>
                 <h4> Category:{{category.category}}</h4>
-                <h5> Post by {{category.username}}</h5>
+                <h5> Post by {{category.user.username}}</h5>
                 <p><mark>{{category.date_posted}}</mark></p>
                 <!-- <button class="btn1"> Like </button> -->
                 <a href="{{url_for('main.like',id = category.id)}}"><button class="btn1"> Likes {{category.upvotes.count()}}</button></a>

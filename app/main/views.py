@@ -28,8 +28,8 @@ def new_pitch():
         title = form.title.data
         description = form.description.data
         category = form.category.data
-        user   = current_user
-        new_pitch_object = Pitch(description=description,user=current_user._get_current_object().id,category=category,title=title)
+        user_id  = current_user
+        new_pitch_object = Pitch(description=description,user_id=current_user._get_current_object().id,category=category,title=title)
         new_pitch_object.save_pitch()
         return redirect(url_for('main.index'))
     return render_template('new_pitch.html',form = form)
