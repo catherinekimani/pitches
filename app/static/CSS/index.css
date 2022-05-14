@@ -19,7 +19,7 @@ h1{
 /* button */
 .btn1{
     background-color: red;
-    width: 20%;
+    width: 15%;
     color: white;
     font-size: 15px;
     font-weight: bold;
@@ -27,8 +27,8 @@ h1{
 
 .btn2{
     background-color : green;
-    margin-left: 10%;
-    width: 20%;
+    margin-left: 6%;
+    width: 15%;
     color: white;
     font-size: 15px;
     font-weight: bold;
@@ -36,8 +36,8 @@ h1{
 
 .btn3{
     background-color: rgb(16, 133, 165);
-    margin-left: 10%;
-    width: 20%;
+    margin-left: 8%;
+    width: 15%;
     color: white;
     font-size: 15px;
     font-weight: bold;
