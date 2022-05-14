@@ -18,7 +18,7 @@
                 <h1>{{category.title}}</h1>
                 <p style="font-size: 15px;">{{category.description}}</p>
                 <h4> Category:{{category.category}}</h4>
-                <h5> Post by {{category.user}}</h5>
+                <h5> Post by {{category.username}}</h5>
                 <p><mark>{{category.date_posted}}</mark></p>
                 <!-- <button class="btn1"> Like </button> -->
                 <a href="{{url_for('main.like',id = category.id)}}"><button class="btn1"> Likes {{category.upvotes.count()}}</button></a>
